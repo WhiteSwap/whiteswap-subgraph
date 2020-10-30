@@ -1,31 +1,31 @@
 import { PairHourData } from './../types/schema'
 /* eslint-disable prefer-const */
 import { BigInt, BigDecimal, EthereumEvent } from '@graphprotocol/graph-ts'
-import { Pair, Bundle, Token, UniswapFactory, UniswapDayData, PairDayData, TokenDayData } from '../types/schema'
+import { Pair, Bundle, Token, WhiteSwapFactory, WhiteSwapDayData, PairDayData, TokenDayData } from '../types/schema'
 import { ONE_BI, ZERO_BD, ZERO_BI, FACTORY_ADDRESS } from './helpers'
 
-export function updateUniswapDayData(event: EthereumEvent): UniswapDayData {
-  let uniswap = UniswapFactory.load(FACTORY_ADDRESS)
+export function updateWhiteSwapDayData(event: EthereumEvent): WhiteSwapDayData {
+  let whiteswap = WhiteSwapFactory.load(FACTORY_ADDRESS)
   let timestamp = event.block.timestamp.toI32()
   let dayID = timestamp / 86400
   let dayStartTimestamp = dayID * 86400
-  let uniswapDayData = UniswapDayData.load(dayID.toString())
-  if (uniswapDayData === null) {
-    uniswapDayData = new UniswapDayData(dayID.toString())
-    uniswapDayData.date = dayStartTimestamp
-    uniswapDayData.dailyVolumeUSD = ZERO_BD
-    uniswapDayData.dailyVolumeETH = ZERO_BD
-    uniswapDayData.totalVolumeUSD = ZERO_BD
-    uniswapDayData.totalVolumeETH = ZERO_BD
-    uniswapDayData.dailyVolumeUntracked = ZERO_BD
+  let whiteswapDayData = WhiteSwapDayData.load(dayID.toString())
+  if (whiteswapDayData === null) {
+    whiteswapDayData = new WhiteSwapDayData(dayID.toString())
+    whiteswapDayData.date = dayStartTimestamp
+    whiteswapDayData.dailyVolumeUSD = ZERO_BD
+    whiteswapDayData.dailyVolumeETH = ZERO_BD
+    whiteswapDayData.totalVolumeUSD = ZERO_BD
+    whiteswapDayData.totalVolumeETH = ZERO_BD
+    whiteswapDayData.dailyVolumeUntracked = ZERO_BD
   }
 
-  uniswapDayData.totalLiquidityUSD = uniswap.totalLiquidityUSD
-  uniswapDayData.totalLiquidityETH = uniswap.totalLiquidityETH
-  uniswapDayData.txCount = uniswap.txCount
-  uniswapDayData.save()
+  whiteswapDayData.totalLiquidityUSD = whiteswap.totalLiquidityUSD
+  whiteswapDayData.totalLiquidityETH = whiteswap.totalLiquidityETH
+  whiteswapDayData.txCount = whiteswap.txCount
+  whiteswapDayData.save()
 
-  return uniswapDayData as UniswapDayData
+  return whiteswapDayData as WhiteSwapDayData
 }
 
 export function updatePairDayData(event: EthereumEvent): PairDayData {
