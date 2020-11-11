@@ -12,7 +12,7 @@ import {
 } from './tokenList'
 
 export const ADDRESS_ZERO = '0x0000000000000000000000000000000000000000'
-export const FACTORY_ADDRESS = '0xed6FF6254E5B0C57DE2389A19C1a09cAD16Fe318'
+export const FACTORY_ADDRESS = '0x69bd16aE6F507bd3Fc9eCC984d50b04F029EF677'
 
 export let ZERO_BI = BigInt.fromI32(0)
 export let ONE_BI = BigInt.fromI32(1)
