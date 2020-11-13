@@ -8,7 +8,7 @@
     "build": "graph build",
     "create-local": "graph create whiteswapfi/whiteswap --node http://127.0.0.1:8020",
     "deploy-local": "graph deploy whiteswapfi/whiteswap --debug --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
-    "deploy": "graph deploy whiteswapfi/whiteswap --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ --debug",
+    "deploy": "graph deploy whiteswapfi/whiteswap --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/ --debug"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.16.0",
